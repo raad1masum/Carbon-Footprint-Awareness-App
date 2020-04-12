@@ -54,16 +54,18 @@
                             <h3 style="font-weight: bold; font-size:xx-large;">The Carbon Tracker - The Scanner</h3>
                         </header>
                         <p style="color: black; font-size: larger;">One of the prominent problems that arose during the creation of our project was the scenario in which the 
-                            product's barcode had been removed or if the food item had been prepared as opposed to being purchased. The only
-                            viable solution seemed to be using a faster_rcnn_inception_v2_coco model. Neural networks only
-                            become powerful when trained with enormous amounts of data. Thus, the training set that had been used was the food101 
-                            dataset on kaggle.
+                            product's barcode had been removed or if the food item had been prepared as opposed to being purchased. The solution we
+                            came up with is using a neural net to predict what the food is. We trained a ssd_mobilenet_v2_coco model using Tensorflow's
+                            Object Detection API. The reason we chose to use a mobilenet is that we hope to eventually make this usable on a mobile device
+                            meaning the model must be small and quick. Therefore an ssd_mobilenet was the best option with a guess speed of 27ms with
+                            minimal loss to the accuracy. The model was trained on a Nvidia 1050 Ti GPU for 11 hours, with over 100 images for each
+                            food.
                             <br>
                             <br>
                             <b>HOW IT WORKS:</b>
-                            When you run the program, all you are required to do is hold your food up to the webcam.
-                            The neural network will then take the image and predict what food item it is. Finally, it will
-                            output the estimated carbon footprint of it.</p>
+                            Take a picture of the food using your webcam or phone camera, upload it to the Server which will call our food model API
+                            to make a prediction about the food, and return carbon footprint data about the food so you can make the best decision
+                            for the environment.</p>
                         <footer>
                             <a href="https://builtin.com/artificial-intelligence" class="button special">More about AI</a>
                         </footer>
