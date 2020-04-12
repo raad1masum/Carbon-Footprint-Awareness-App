@@ -2,20 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Carbon Footprint Scanner</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/styles.css?v2">
 </head>
 <body>
-    <div class="container">
-        <form method="post" action="" enctype="multipart/form-data" id="myform">
-            <div >
+    <div class="container" style="text-align: center">
+        <form method="post" action="" enctype="multipart/form-data" id="myform" style="margin-top: 30px;">
+            <h1>Carbon Footprint Scanner</h1>
+            <div>
                 <input type="file" id="file" name="file" />
                 <input type="button" class="button" value="Upload" id="btn_submit">
             </div>
         </form>
     </div>
+    <hr>
+    <div style="text-align: center;">
+        <h1 id="status" style=" margin-top: 1vh;"></h1>
+        <img id="return_img" height="600px" width="400px">
+        <h3 id="carbon-data1" style="margin-top: 1vh"></h3>
 
-    <h1 id="status"></h1>
+    </div>
+
+    <div id="overlay">
+        <div class="Aligner">
+            <div class="Aligner-item" style="margin-top: 50vh">
+                <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+            </div>
+        </div>
+    </div>
 </body>
-<script src="/static/scanner.js?ffff"></script>
+<script src="/static/scanner.js?v6"></script>
 </html>
