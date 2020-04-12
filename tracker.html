@@ -48,9 +48,19 @@
                             <img src="/img/neural_network.png" alt="neural.network_pic" />
                         </div>
                         <header>
-                            <h3>How the Carbon Tracker was made</h3>
+                            <h3>The Carbon Tracker - The Scanner</h3>
                         </header>
-                        <p>i need to write the steps here lol</p>
+                        <p>One of the prominent problems that arose during the creation of our project was the scenario in which the 
+                            product's barcode had been removed or if the food item had been prepared as opposed to being purchased. The only
+                            viable solution seemed to be using a faster_rcnn_inception_v2_coco model. Neural networks only
+                            become powerful when trained with enormous amounts of data. Thus, the training set that had been used was the food101 
+                            dataset on kaggle.
+                            <br>
+                            <br>
+                            <b>HOW IT WORKS:</b>
+                            When you run the program, all you are required to do is hold your food up to the webcam.
+                            The neural network will then take the image and predict what food item it is. Finally, it will
+                            output the estimated carbon footprint of it.</p>
                         <footer>
                             <a href="https://builtin.com/artificial-intelligence" class="button special">More about AI</a>
                         </footer>
@@ -60,9 +70,20 @@
                             <img src="/img/carbon_emission.jpg" alt="carbon.emissions_pic" />
                         </div>
                         <header>
-                            <h3>How the Carbon Tracker functions</h3>
+                            <h3>The Carbon Tracker - The Scraper</h3>
                         </header>
-                        <p>i need to write functions here lol</p>
+                        <p>In the event where the barcode on the product is present, we created a web scraper to fetch
+                            information on a UPC database about the product. The scraper was programmed using Python 3 and it
+                            implemented beautiful soup for data collection. After intense and thorough research, our team created 
+                            a Python dictionary listing the carbon footprint of various categories of food.
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <b>HOW IT WORKS:</b>
+                            When you run the program, all you are required to do is type in the 12 digit barcode located on your
+                            food product. Then, the program will fetch the product from the database and display the estimated carbon
+                            emission level (carbon footprint) produced during the creation of the product.</p>
                         <footer>
                             <h3>Check out our Carbon Tracker program with the download below:</h3>
                         </footer>
