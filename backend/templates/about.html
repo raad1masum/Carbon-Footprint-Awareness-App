@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Carbon Footprint Awareness</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content ="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/static/styles.css">
+    </head>
+    
+    
+    <body>
+        <!--header-->
+        <header id="header">
+            <div class="inner">
+                <nav id="nav">
+                    <a href="/">
+                        <font size="5"><u class="nav-bar">Home</u></font>
+                    </a>
+                    <a href="/tracker">
+                        <font size="5"><u class="nav-bar">Carbon Tracker</u></font>
+                    </a>
+                    <a href="/about">
+                        <font size ="5"><u class="nav-bar">Data Analysis</u></font>
+                    </a>
+                </nav>
+                <a href="#navPanel" class="navPanelToggle">
+                    <span class="fa fa-bars"></span>
+                </a>
+            </div>            
+        </header>
+        <hr>
+      
+        
+        <!--top main banner--> 
+        <section id="banner">
+            <h1>Analyzing Data on Atmospheric Temperatures With R</h1>
+            <p>By: Raadwan Masum
+               <br> 
+               The Helyx Initiative - Hack the Helyx Hackathon</p>
+        </section>   
+      
+        
+        <!--section one (scanner)-->
+        <section id="one" class="wrapper">
+            <div class="inner">
+                <h3 style="font-weight: bold; font-size:xx-large;">About the data</h3>
+                <h4 style="color: black; font-size: larger;">I used the "temp_carbon," "greenhouse_gases," and "historic_co2" datasets from the dslabs library for this analysis. These three datasets contain data related to climate change over time. This data produces clear plots that demonstrate an increase in temperature, greenhouse gas levels, and carbon emissions from 800,000 years ago to modern times. All code is written in the R programming language. You can find the code <a href="https://github.com/raad1masum/Carbon-Footprint-Awareness-App/blob/master/data_analysis.r" target="_blank" style="color: blue; text-decoration: underline;">here</a>.</h4>
+                <img src="/static/img/data/rstudio.jpg" width="80%" style="margin-bottom: 20px;">
+                <h3 style="font-weight: bold; font-size:xx-large;">Modern temperature anomaly and carbon dioxide data: temp_carbon</h3>
+                <h4 style="color: black; font-size: larger;">The temp_carbon dataset includes annual global temperature anomaly measurements in degrees Celsius relative to the 20th century mean temperature from 1880-2018. It includes anomalies over land and ocean. Additionally, it includes annual carbon emissions (in millions of metric tons) from 1751-2014. Temperature anomalies are from NOAA and carbon emissions are from Boden et al., via CDIAC.</h4>
+                <pre class="r"><code class="hljs">data(temp_carbon)
+                <span class="hljs-comment"># line plot of annual global, land and ocean temperature anomalies since 1880</span>
+                temp_carbon %&gt;%
+                    select(Year = year, Global = temp_anomaly, Land = land_anomaly, Ocean = ocean_anomaly) %&gt;%
+                    gather(Region, Temp_anomaly, Global:Ocean) %&gt;%
+                    ggplot(aes(Year, Temp_anomaly, col = Region)) +
+                    geom_line(size = <span class="hljs-number">1</span>) +
+                    geom_hline(aes(yintercept = <span class="hljs-number">0</span>), col = colorblind_palette[<span class="hljs-number">8</span>], lty = <span class="hljs-number">2</span>) +
+                    geom_label(aes(x = <span class="hljs-number">2005</span>, y = -<span class="hljs-number">.08</span>), col = colorblind_palette[<span class="hljs-number">8</span>], 
+                                label = <span class="hljs-string">"20th century mean"</span>, size = <span class="hljs-number">4</span>) +
+                    ylab(<span class="hljs-string">"Temperature anomaly (degrees C)"</span>) +
+                    xlim(c(<span class="hljs-number">1880</span>, <span class="hljs-number">2018</span>)) +
+                    scale_color_manual(values = colorblind_palette) +
+                    ggtitle(<span class="hljs-string">"Temperature anomaly relative to 20th century mean, 1880-2018"</span>)</code></pre>
+                <img src="/static/img/data/data1.png" width="800">
+                <h3 style="font-weight: bold; font-size:xx-large;">Greenhouse gas concentrations over 2000 years: greenhouse_gases</h3>
+                <h4 style="color: black; font-size: larger;">The greenhouse_gases data frame contains carbon dioxide (CO2, ppm), methane (CO2, ppb) and nitrous oxide (N2O, ppb) concentrations in 20 year invervals from 0-2000 CE. The data are a subset of ice core measurements from MacFarling Meure et al, via NOAA. We can see that there is a clear increase in all 3 gases starting around the time of the Industrial Revolution.</h4>
+                <pre class="r"><code class="hljs">data(greenhouse_gases)
+                <span class="hljs-comment"># line plots of atmospheric concentrations of the three major greenhouse gases since 0 CE</span>
+                greenhouse_gases %&gt;%
+                    ggplot(aes(year, concentration)) +
+                    geom_line() +
+                    facet_grid(gas ~ ., scales = <span class="hljs-string">"free"</span>) +
+                    xlab(<span class="hljs-string">"Year"</span>) +
+                    ylab(<span class="hljs-string">"Concentration (CH4/N2O ppb, CO2 ppm)"</span>) +
+                    ggtitle(<span class="hljs-string">"Atmospheric greenhouse gas concentration by year, 0-2000 CE"</span>)</code></pre>
+                <img src="/static/img/data/data2.png" width="800">
+                <h4 style="color: black; font-size: larger;">Compare this pattern with man made carbon emissions since the year 1751 from temp_carbon, which have risen in a similar way:</h4>
+                <pre class="r"><code class="hljs"><span class="hljs-comment"># line plot of anthropogenic carbon emissions over 250+ years</span>
+                temp_carbon %&gt;%
+                    ggplot(aes(year, carbon_emissions)) +
+                    geom_line() +
+                    xlab(<span class="hljs-string">"Year"</span>) +
+                    ylab(<span class="hljs-string">"Carbon emissions (metric tons)"</span>) +
+                    ggtitle(<span class="hljs-string">"Annual global carbon emissions, 1751-2014"</span>)</code></pre>
+                <img src="/static/img/data/data3.png" width="800">
+                <h3 style="font-weight: bold; font-size:xx-large;">Carbon dioxide levels over the last 800,000 years: historic_co2</h3>
+                <h4 style="color: black; font-size: larger;">A common argument against the existence of anthropogenic climate change is that the Earth naturally undergoes cycles of warming and cooling governed by natural changes beyond human control. CO2 levels from ice cores and modern atmospheric measurements at the Mauna Loa observatory demonstrate that the speed and magnitude of natural variations in greenhouse gases pale in comparison to the rapid changes in modern industrial times. While the planet has been hotter and had higher CO2 levels in the distant past (data not shown), the current unprecedented rate of change leaves little time for planetary systems to adapt.</h4>
+                <pre class="r"><code class="hljs">data(historic_co2)
+                <span class="hljs-comment"># line plot of atmospheric CO2 concentration over 800K years, colored by data source</span>
+                historic_co2 %&gt;%
+                    ggplot(aes(year, co2, col = <span class="hljs-keyword">source</span>)) +
+                    geom_line() +
+                    ylab(<span class="hljs-string">"CO2 (ppm)"</span>) +
+                    scale_color_manual(values = colorblind_palette[<span class="hljs-number">7</span>:<span class="hljs-number">8</span>]) +
+                    ggtitle(<span class="hljs-string">"Atmospheric CO2 concentration, -800,000 BCE to today"</span>)</code></pre>
+                <img src="/static/img/data/data4.png" width="800">
+            </div>
+        </section>
+
+        
+        <!--section two-->
+        <section id="two" class="wrapper style1 special">
+            <div class="inner">
+                <header>
+                    <h2 style="font-weight: bold; font-size:xx-large;">The Team</h2>
+                    <p>The 4 individuals who created this project</p>
+                </header>
+
+                <div class="flex flex-4">
+                    <div class="box person">
+                        <img class="about-image" src="/static/img/ashwin_babu.jpeg" alt="Ashwin Babu">
+                        <h3>Ashwin Babu</h3>
+                        <p>Executive frontend and server control developer</p>
+                    </div>
+
+                    <div class="box person">
+                        <img class="about-image" src="/static/img/raadwan.jpg" alt="Raadwan Masum">
+                        <h3>Raadwan Masum</h3>
+                        <p>Executive vision processing and data analytics programmer</p>
+                    </div>
+
+                    <div class="box person">
+                        <img class="about-image" src="/static/img/generic.png" alt="Alvin Zheng">
+                        <h3>Alvin Zheng</h3>
+                        <p>Executive vision processing developer and lead artificial intelligence programmer</p>
+                    </div>
+
+                    <div class="box person">
+                        <img class="about-image" src="/static/img/rishi.jpg" alt="Rishi Peddakama">
+                        <h3>Rishi Peddakama</h3>
+                        <p>Executive artifical intelligence developer</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!--footer and copyright-->
+        <footer id="footer">
+            <div class="inner">
+                <div class="flex">
+                    <div class="copyright">
+                        &copy; 2020 Ashwin Babu, Raadwan Masum, Alvin Zheng, Rishi Pedakkama.
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+        <script src="app.js"></script>
+    </body>
+</html>

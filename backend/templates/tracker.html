@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Carbon Footprint Awareness</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content ="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/static/styles.css">
+    </head>
+    
+    
+    <body>
+        <!--header-->
+        <header id="header">
+            <div class="inner">
+                <nav id="nav">
+                    <a href="/">
+                        <font size="5"><u class="nav-bar">Home</u></font>
+                    </a>
+                    <a href="/tracker">
+                        <font size="5"><u class="nav-bar">Carbon Tracker</u></font>
+                    </a>
+                    <a href="/about">
+                        <font size ="5"><u class="nav-bar">Data Analysis</u></font>
+                    </a>
+                </nav>
+                <a href="#navPanel" class="navPanelToggle">
+                    <span class="fa fa-bars"></span>
+                </a>
+            </div>            
+        </header>
+        <hr>
+      
+        
+        <!--top main banner--> 
+        <section id="banner">
+            <h1>The Carbon Tracker</h1>
+            <p>By Ashwin Babu, Raadwan Masum, Rishi Peddakama, and Alvin Zheng
+               <br> 
+               The Helyx Initiative - Hack the Helyx Hackathon</p>
+        </section>   
+      
+        
+        <!--section one (info)-->
+        <section id="one" class="wrapper special">
+            <div class="inner">
+                <header class="align-center">
+                    <h2 style="font-weight: bold; font-size:xx-large;">How does the Carbon Tracker work?</h2>
+                    <h3 style="font-weight: bold; font-size:xx-large;">How was it made?</h3>
+                </header>
+                <hr>
+                <div class="flex flex-2">
+                    <article>
+                        <header>
+                            <h3 style="font-weight: bold; font-size:xx-large;">The Carbon Tracker - The Scanner</h3>
+                        </header>
+                        <p style="color: black; font-size: larger;">One of the prominent problems that arose during the creation of our project was the scenario in which the 
+                            product's barcode had been removed or if the food item had been prepared as opposed to being purchased. The only
+                            viable solution seemed to be using a faster_rcnn_inception_v2_coco model. Neural networks only
+                            become powerful when trained with enormous amounts of data. Thus, the training set that had been used was the food101 
+                            dataset on kaggle.
+                            <br>
+                            <br>
+                            <b>HOW IT WORKS:</b>
+                            When you run the program, all you are required to do is hold your food up to the webcam.
+                            The neural network will then take the image and predict what food item it is. Finally, it will
+                            output the estimated carbon footprint of it.</p>
+                        <footer>
+                            <a href="https://builtin.com/artificial-intelligence" class="button special">More about AI</a>
+                        </footer>
+                    </article>
+                    <article>
+                        <header>
+                            <h3 style="font-weight: bold; font-size:xx-large;">The Carbon Tracker - The Scraper</h3>
+                        </header>
+                        <p style="color: black; font-size: larger;">In the event where the barcode on the product is present, we created a web scraper to fetch
+                            information on a UPC database about the product. The scraper was programmed using Python 3 and it
+                            implemented beautiful soup for data collection. After intense and thorough research, our team created 
+                            a Python dictionary listing the carbon footprint of various categories of food.
+                            <br>
+                            <br>
+                            <b>HOW IT WORKS:</b>
+                            When you run the program, all you are required to do is type in the 12 digit barcode located on your
+                            food product. Then, the program will fetch the product from the database and display the estimated carbon
+                            emission level (carbon footprint) produced during the creation of the product.</p>
+                        <footer>
+                            <a href="https://thefootinfood.weebly.com/carbon-footprint.html" class="button special">More about food and CO2</a>
+                            <br>
+                            <br>
+                            <h3 style="font-weight: bold; font-size:xx-large;">Check out our Carbon Tracker program with the download below:</h3>
+                        </footer>
+                    </article>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <hr>
+            <a href="" class="button special">The Carbon Tracker - The Scraper</a>
+            <br>
+            <br>
+            <br>
+            <a href="" class="button special">The Carbon Tracker - The Scanner</a>
+            <hr>
+            <div class="inner">
+                <div class="flex flex-2">
+                    <article>
+                        <header>
+                            <h3 style="font-weight: bold; font-size:xx-large;">The Process</h3>
+                        </header>
+                        <p><ul>
+                            <b><li style="font-size: larger;"><u>Divide and Conquer</u></li>
+                                <ul style="font-size: larger;">
+                                    <li>Front End, Design, and Server - Ashwin Babu</li>
+                                    <li>Vision Processing and Neural Network Training - Alvin Zheng</li>
+                                    <li>Barcode Scraper Programming - Rishi Peddakama</li>
+                                    <li>Data Analysis and Modeling - Raadwan Masum</li>
+                                </ul>
+                                <li style="font-size: larger;"><u>Collaboration Resources</u></li>
+                                <ul style="font-size: larger;">
+                                    <li>Git - Constantly syncing changes to Github repo so that everyone is on the latest code</li>
+                                    <li>VSCode Live Share - Add-on to source-code editor, Visual Studio Code which allowed efficient updating and collaboration through the programming process</li>
+                                </ul></b>
+                            </ul></p>   
+                    </article>
+                    <article>
+                        <header>
+                            <h3 style="font-weight: bold; font-size:xx-large;">Our Purpose</h3>
+                        </header>
+                        <p style="color: black; font-size: larger;"><b>The purpose of our product is to spread awareness of our changing environment and emphasize the
+                            importance of changing now before its too late. Granted, it is very hard for the
+                            average working class citizen to find time to help preserve the environments through local 
+                            cleanups and events. And that is why we created our website; It is a simple carbon footprint
+                            tracker that tells you how much C02 is being released with any food product you may own that
+                            can be identified through your webcam or the barcode on the product. We hope that with this, 
+                            people are able to change the environment one little step at a time through the surveillance of 
+                            personal carbon emissions.</b></p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+
+        <!--section two (scanner)-->
+        <section id="two" class="wrapper">
+            <div class="inner">
+                <div class="flex flex-3">
+                    
+                </div>
+            </div>
+        </section>
+
+        
+        <!--section three (about the team)-->
+        <section id="three" class="wrapper style1 special">
+            <div class="inner">
+                <header>
+                    <h2 style="font-weight: bold; font-size:xx-large;">The Team</h2>
+                    <p>The 4 individuals who created this project</p>
+                </header>
+
+                <div class="flex flex-4">
+                    <div class="box person">
+                        <img class="about-image" src="/static/img/ashwin_babu.jpeg" alt="Ashwin Babu">
+                        <h3>Ashwin Babu</h3>
+                        <p>Executive frontend and server control developer</p>
+                    </div>
+
+                    <div class="box person">
+                        <img class="about-image" src="/static/img/raadwan.jpg" alt="Raadwan Masum">
+                        <h3>Raadwan Masum</h3>
+                        <p>Executive vision processing and data analytics programmer</p>
+                    </div>
+
+                    <div class="box person">
+                        <img class="about-image" src="/static/img/generic.png" alt="Alvin Zheng">
+                        <h3>Alvin Zheng</h3>
+                        <p>Executive vision processing developer and lead artificial intelligence programmer</p>
+                    </div>
+
+                    <div class="box person">
+                        <img class="about-image" src="/static/img/rishi.jpg" alt="Rishi Peddakama">
+                        <h3>Rishi Peddakama</h3>
+                        <p>Executive artifical intelligence developer</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!--footer and copyright-->
+        <footer id="footer">
+            <div class="inner">
+                <div class="flex">
+                    <div class="copyright">
+                        &copy; 2020 Ashwin Babu, Raadwan Masum, Alvin Zheng, Rishi Pedakkama.
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+        <script src="/static/app.js"></script>
+    </body>
+</html>
