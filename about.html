@@ -44,9 +44,9 @@
         <section id="one" class="wrapper">
             <div class="inner">
                 <h3 style="font-weight: bold; font-size:xx-large;">About the data</h3>
-                <h4 style="color: black; font-size: larger;">I used the "temp_carbon," "greenhouse_gases," and "historic_co2" datasets from the dslabs library. These three datasets related to climate change over time. These data produce clear plots that demonstrate an increase in temperature, greenhouse gas levels, and carbon emissions from 800,000 years ago to modern times.</h4>
+                <h4 style="color: black; font-size: larger;">I used the "temp_carbon," "greenhouse_gases," and "historic_co2" datasets from the dslabs library for this analysis. These three datasets contain data related to climate change over time. This data produces clear plots that demonstrate an increase in temperature, greenhouse gas levels, and carbon emissions from 800,000 years ago to modern times.</h4>
                 <h3 style="font-weight: bold; font-size:xx-large;">Modern temperature anomaly and carbon dioxide data: temp_carbon</h3>
-                <h4 style="color: black; font-size: larger;">The temp_carbon dataset includes annual global temperature anomaly measurements in degrees Celsius relative to the 20th century mean temperature from 1880-2018. The temperature anomalies over land and over ocean are reported also. In addition, it includes annual carbon emissions (in millions of metric tons) from 1751-2014. Temperature anomalies are from NOAA and carbon emissions are from Boden et al., 2017 via CDIAC.</h4>
+                <h4 style="color: black; font-size: larger;">The temp_carbon dataset includes annual global temperature anomaly measurements in degrees Celsius relative to the 20th century mean temperature from 1880-2018. It includes anomalies over land and ocean. Additionally, it includes annual carbon emissions (in millions of metric tons) from 1751-2014. Temperature anomalies are from NOAA and carbon emissions are from Boden et al., via CDIAC.</h4>
                 <pre class="r"><code class="hljs">data(temp_carbon)
                 <span class="hljs-comment"># line plot of annual global, land and ocean temperature anomalies since 1880</span>
                 temp_carbon %&gt;%
@@ -63,7 +63,7 @@
                     ggtitle(<span class="hljs-string">"Temperature anomaly relative to 20th century mean, 1880-2018"</span>)</code></pre>
                 <img src="./img/data/data1.png" width="800">
                 <h3 style="font-weight: bold; font-size:xx-large;">Greenhouse gas concentrations over 2000 years: greenhouse_gases</h3>
-                <h4 style="color: black; font-size: larger;">The greenhouse_gases data frame contains carbon dioxide (CO2, ppm), methane (CO2, ppb) and nitrous oxide (N2O, ppb) concentrations every 20 years from 0-2000 CE. The data are a subset of ice core measurements from MacFarling Meure et al., 2006 via NOAA. There is a clear increase in all 3 gases starting around the time of the Industrial Revolution.</h4>
+                <h4 style="color: black; font-size: larger;">The greenhouse_gases data frame contains carbon dioxide (CO2, ppm), methane (CO2, ppb) and nitrous oxide (N2O, ppb) concentrations in 20 year invervals from 0-2000 CE. The data are a subset of ice core measurements from MacFarling Meure et al, via NOAA. We can see that there is a clear increase in all 3 gases starting around the time of the Industrial Revolution.</h4>
                 <pre class="r"><code class="hljs">data(greenhouse_gases)
                 <span class="hljs-comment"># line plots of atmospheric concentrations of the three major greenhouse gases since 0 CE</span>
                 greenhouse_gases %&gt;%
@@ -74,7 +74,7 @@
                     ylab(<span class="hljs-string">"Concentration (CH4/N2O ppb, CO2 ppm)"</span>) +
                     ggtitle(<span class="hljs-string">"Atmospheric greenhouse gas concentration by year, 0-2000 CE"</span>)</code></pre>
                 <img src="./img/data/data2.png" width="800">
-                <h4 style="color: black; font-size: larger;">Compare this pattern with manmade carbon emissions since 1751 from temp_carbon, which have risen in a similar way:</h4>
+                <h4 style="color: black; font-size: larger;">Compare this pattern with man made carbon emissions since the year 1751 from temp_carbon, which have risen in a similar way:</h4>
                 <pre class="r"><code class="hljs"><span class="hljs-comment"># line plot of anthropogenic carbon emissions over 250+ years</span>
                 temp_carbon %&gt;%
                     ggplot(aes(year, carbon_emissions)) +
