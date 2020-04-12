@@ -720,6 +720,6 @@ header h6 + p {
 }
 
 .about-image {
-	width: 200px;
-	border-radius: 50px;
+  width: 200px;
+  border-radius: 50px;
 }
